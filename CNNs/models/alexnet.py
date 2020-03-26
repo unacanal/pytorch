@@ -2,8 +2,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-class AlexNet(nn.Module):
-    def __init__(self, num_classes=10):
+class AlexNet(nn.Module): # for ImageNet
+    def __init__(self, num_classes=1000):
         super(AlexNet, self).__init__()
         self.features = nn.Sequential(
             # 1st layer
