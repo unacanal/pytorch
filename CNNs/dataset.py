@@ -3,7 +3,7 @@ import torchvision
 import torchvision.transforms as transforms
 
 class CIFAR10:
-    def __init__(self, args)
+    def __init__(self, args):
         self.args = args
         print('==> Preparing data...')
         self.transform_train = transforms.Compose([
