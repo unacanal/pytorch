@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-class AlexNet2(nn.Module):
+class AlexNet2(nn.Module): # revised some parameters from original AlexNet for CIFAR-10
     def __init__(self, num_classes=10):
         super(AlexNet2, self).__init__()
         self.features = nn.Sequential(
