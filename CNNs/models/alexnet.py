@@ -3,11 +3,11 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 class AlexNet(nn.Module):
-    def __init__(self, num_classes=1000):
+    def __init__(self, num_classes=10):
         super(AlexNet, self).__init__()
         self.features = nn.Sequential(
             # 1st layer
-            nn.Conv2d(in_channels=3, out_channels=96, kernel_size=11, stride=4, padding=2),
+            nn.Conv2d(in_channels=3, out_channels=96, kernel_size=11, stride=4),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=3, stride=2),
             nn.LocalResponseNorm(k=2, size=5, alpha=0.0001, beta=0.75), # paper section 3.3
@@ -41,6 +41,8 @@ class AlexNet(nn.Module):
         )
 
     def forward(self, x):
+        print(x.shape)
         x = self.features(x)
+        print(x.shape)
         x = self.classifier(x)
         return x
